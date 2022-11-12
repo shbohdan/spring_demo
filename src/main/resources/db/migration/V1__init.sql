@@ -1,0 +1,14 @@
+CREATE TABLE author (
+	id INT NOT NULL AUTO_INCREMENT,
+	name VARCHAR(255),
+	email VARCHAR(255),
+	PRIMARY KEY (id)
+);
+
+CREATE TABLE document (
+	id INT NOT NULL AUTO_INCREMENT,
+	text TEXT,
+	created_at TIMESTAMP WITHOUT TIME ZONE,
+	author_id INT NOT NULL,
+	PRIMARY KEY (id)
+);
