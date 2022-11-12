@@ -4,6 +4,10 @@ import org.fam.spring.demo.by.type.domain.Author;
 import org.fam.spring.demo.by.type.repository.AuthorRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+import static org.fam.spring.demo.by.type.util.CollectionUtils.toList;
+
 @Service
 public class AuthorManagementService {
     private final AuthorRepository authorRepository;
@@ -22,5 +26,9 @@ public class AuthorManagementService {
         return authorRepository.findById(id)
                 .orElseThrow(); // Bad design: exception type is not defined explicitly,
                                 // but it is better than orElse(null)
+    }
+
+    public List<Author> findAll() {
+        return toList(authorRepository.findAll());
     }
 }

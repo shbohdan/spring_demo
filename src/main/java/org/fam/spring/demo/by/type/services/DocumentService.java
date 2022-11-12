@@ -2,6 +2,7 @@ package org.fam.spring.demo.by.type.services;
 
 import org.fam.spring.demo.by.type.domain.Author;
 import org.fam.spring.demo.by.type.domain.Document;
+import org.fam.spring.demo.by.type.dto.DocumentDto;
 import org.fam.spring.demo.by.type.repository.AuthorRepository;
 import org.fam.spring.demo.by.type.repository.DocumentRepository;
 import org.fam.spring.demo.by.type.util.CollectionUtils;
@@ -37,4 +38,7 @@ public class DocumentService {
         return documentRepository.findByAuthorId(authorId);
     }
 
+    public Document findById(Long id) {
+        return documentRepository.findById(id).orElseThrow(DocumentNotFound::new);
+    }
 }
